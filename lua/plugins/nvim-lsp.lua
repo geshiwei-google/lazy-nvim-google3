@@ -25,8 +25,10 @@ return {
       },
     }
     nvim_lspconfig.ciderlsp.setup({
+      capabilities = require("blink.cmp").get_lsp_capabilities(),
       on_attach = function(client, bufnr)
-        if vim.bo[bufnr].filetype == "typescript" then
+        local ft = vim.bo[bufnr].filetype
+        if ft == "typescript" or ft == "bzl" then
           client.server_capabilities.documentHighlightProvider = false
         end
       end,

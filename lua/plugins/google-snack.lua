@@ -107,28 +107,35 @@ return {
     {
       "<leader>cq",
       function()
-        require("google-snacks").codesearch.query()
+        require("util.google_codesearch").query()
       end,
       desc = "codesearch query",
     },
     {
+      "<leader>cQ",
+      function()
+        require("util.google_codesearch").head_query()
+      end,
+      desc = "codesearch query from head",
+    },
+    {
       "<leader>cqf",
       function()
-        require("google-snacks").codesearch.query({ files = true, title = "codesearch - files" })
+        require("util.google_codesearch").query({ files = true, title = "codesearch - files" })
       end,
       desc = "codesearch files",
     },
     {
       "<leader>cqw",
       function()
-        require("google-snacks").codesearch.word()
+        require("util.google_codesearch").word()
       end,
       desc = "codesearch word",
     },
     {
       "<leader>cqv",
       function()
-        require("google-snacks").codesearch.visual()
+        require("util.google_codesearch").visual()
       end,
       desc = "codesearch visual",
       mode = "v",
@@ -136,7 +143,7 @@ return {
     {
       "<leader>cwf",
       function()
-        require("google-snacks").codesearch.word({ files = true, title = "codesearch - word - files" })
+        require("util.google_codesearch").word({ files = true, title = "codesearch - word - files" })
       end,
       desc = "codesearch word-file",
     },

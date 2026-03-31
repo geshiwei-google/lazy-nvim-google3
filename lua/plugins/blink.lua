@@ -13,6 +13,7 @@ return {
     opts.sources.providers.ciderlsp = {
       name = "ciderlsp",
       module = "blink-ciderlsp",
+      enabled = true,
       score_offset = 200,
       async = true,
       opts = {
@@ -41,11 +42,11 @@ return {
 
       opts.sources.per_filetype = opts.sources.per_filetype or {}
       for _, ft in ipairs(cider_filetypes) do
-        opts.sources.per_filetype[ft] = { "ciderlsp", "path", "snippets" }
+        opts.sources.per_filetype[ft] = { "ciderlsp", "lsp", "path", "snippets", "buffer" }
       end
 
       -- 2. For everything else (like Lua), use standard LSP and buffer
-      opts.sources.default = { "lsp", "path", "snippets", "buffer" }
+      opts.sources.default = { "ciderlsp", "lsp", "path", "snippets", "buffer" }
     else
       -- Fallback if ciderlsp isn't on the system at all
       opts.sources.default = { "lsp", "path", "snippets", "buffer" }
